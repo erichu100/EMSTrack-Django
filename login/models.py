@@ -119,7 +119,7 @@ def can_sms_notifications():
 
 # GroupProfile
 class GroupProfile(ClearPermissionCacheMixin, models.Model):
-    organization = models.ForeignKey(Organization, on_delete = models.CASCADE, verbose_name = 'organization')
+    organization = models.ForeignKey(Organization, on_delete = models.CASCADE, verbose_name = _('organization'), null = False)
 
     group = models.OneToOneField(
         Group, on_delete=models.CASCADE, verbose_name=_('group')
@@ -234,6 +234,7 @@ class GroupHospitalPermission(ClearPermissionCacheMixin, Permission):
             self.can_read,
             self.can_write,
         )
+#OrganizationAmbulancePermission
 
 
 # random string
